@@ -72,8 +72,11 @@
 ![image](https://github.com/user-attachments/assets/9d2ad97f-1b33-4b2f-af9b-42f2b088f884)
 
 19.Extracts the first 10 lines and Search for "dd" in those first 10 lines.
+
 20.Count the number of lines.
+
 21.Extracts the first 7 lines and Search for "56" in those first 10 lines.
+
 
 ![image](https://github.com/user-attachments/assets/f779d1e7-1b9f-47e8-9627-6984db786ee9)
 
