@@ -1,0 +1,193 @@
+touch - Creates a file 'abc.tsv'.
+{ ~ }  » touch practical.tsv
+
+vi - Open the file "abc.tsv" using the "vi" text editor.
+{ ~ }  » vi practical.tsv
+
+ls - a - Lists all files including hidden files, in the current directory.
+{ ~ }  » ls -a
+.              .inputrc            .vi.un~                           acd.txt     pqr.csv~
+..             .local              .vim                              bin         pqrNew.csv
+.acd.txt.un~   .minttyrc           .viminfo                          days.sh     practical.tsv
+.babunrc       .Names.txt.un~      .xyz.txt.un~                      Names.txt   practical.tsv~
+.bash_history  .oh-my-zsh          .xyz1.txt.swp                     Names.txt~  rows.csv
+.bash_profile  .pact               .zcompdump                        New.txt     vi
+.bashrc        .pqr.csv.un~        .zcompdump-DESKTOP-MD4A1JP-5.0.6  New1.txt    xyz.txt
+.days.sh.un~   .practical.tsv.un~  .zshrc                            New2.txt    xyz.txt~
+.gitconfig     .profile            .zsh-update                       pqr.csv     xyz2.txt
+
+//Extracts the tab seperated first column.
+{ ~ }  » cut -d$' ' -f1 practical.tsv
+aa
+bb
+cc
+dd
+ee
+ff
+gg
+hh
+
+// Extracts the third column using space as a delimiter.
+{ ~ }  » cut -d " " -f3 practical.tsv
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+// Extracts the third column using space as a delimiter.
+{ ~ }  » cut -d$' ' -f3 practical.tsv
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+//Displays the first 2 lines of abc.tsv.
+{ ~ }  » head -n2 practical.tsv
+aa 1 2 3
+bb 2 3 4
+
+//Displays the last 2 lines of abc.tsv.
+{ ~ }  » tail -n2 practical.tsv
+gg 7 8 9
+hh 8 9 10
+
+// Edit the abc.tsv file, remove tabs and add spaces between values.
+{ ~ }  » vi practical.tsv
+
+// Again Extracts the tab seperated first column.
+{ ~ }  » cut -d\t -f1 practical.tsv
+aa 1 2 3
+bb 2 3 4
+cc 3 4 5
+dd 4 5 6
+ee 5 6 7
+ff 6 7 8
+gg 7 8 9
+hh 8 9 10
+
+//Again Extracts the space seperated first column.
+{ ~ }  » cut -d' ' -f1 practical.tsv
+aa
+bb
+cc
+dd
+ee
+ff
+gg
+hh
+
+
+// Extracts the space seperated second column.
+{ ~ }  » cut -d' ' -f3 practical.tsv
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+// Display first 10 lines.
+{ ~ }  » head practical.tsv
+aa 1 2 3
+bb 2 3 4
+cc 3 4 5
+dd 4 5 6
+ee 5 6 7
+ff 6 7 8
+gg 7 8 9
+hh 8 9 10
+
+
+// Display first 8 lines (from head).
+{ ~ }  » head -5 practical.tsv
+aa 1 2 3
+bb 2 3 4
+cc 3 4 5
+dd 4 5 6
+ee 5 6 7
+
+// Display last 5 lines (from head).
+{ ~ }  » tail -5 practical.tsv
+dd 4 5 6
+ee 5 6 7
+ff 6 7 8
+gg 7 8 9
+hh 8 9 10
+
+// Display first line.
+{ ~ }  » head -1 practical.tsv
+aa 1 2 3
+
+// Display last line.
+{ ~ }  » tail -1 practical.tsv
+hh 8 9 10
+
+// Display first 100 lines (from head).
+{ ~ }  » head -100 practical.tsv
+aa 1 2 3
+bb 2 3 4
+cc 3 4 5
+dd 4 5 6
+ee 5 6 7
+ff 6 7 8
+gg 7 8 9
+hh 8 9 10
+
+
+// Extracts the 8th line.
+{ ~ }  » head -n8 practical.tsv | tail -n1
+hh 8 9 10
+
+
+// Prints the entire file using awk.
+{ ~ }  » awk '{print'} practical.tsv
+aa 1 2 3
+bb 2 3 4
+cc 3 4 5
+dd 4 5 6
+ee 5 6 7
+ff 6 7 8
+gg 7 8 9
+hh 8 9 10
+
+// Prints the number of columns (seperated by space).
+{ ~ }  » awk '{print NF; exit'} practical.tsv
+4
+
+// Prints the 3rd column using awk.
+{ ~ }  » awk '{print $3'} practical.tsv
+2
+3
+4
+5
+6
+7
+8
+9
+
+wc -l - Count the number of lines.
+{ ~ }  » wc -l practical.tsv
+8 practical.tsv
+
+// Extracts the first 10 lines and Search for "dd" in those first 10 lines.
+{ ~ }  » head -n5 practical.tsv | grep 'dd'
+dd 4 5 6
+
+// Extracts the first 7 lines and Search for "56" in those first 10 lines.
+{ ~ }  » head -n7 practical.tsv | grep '6'
+dd 4 5 6
+ee 5 6 7
+ff 6 7 8
